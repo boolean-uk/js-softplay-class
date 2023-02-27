@@ -70,12 +70,26 @@ describe("Soft Play", () => {
   it("Adult cannot leave with multiple children", function() {
     sp.enter(2,2)
     expect(sp.leave(1,2)).toBeFalse()
-    expect(sp.occupancy()).toEqual({adults: 2, children:2})
+    expect(sp.occupancy()).toEqual({adults: 2, children: 2})
   })
 
   it("Multiple adults can leave with multiple children", function() {
     sp.enter(2,2)
     expect(sp.leave(2,2)).toBeTrue()
-    expect(sp.occupancy()).toEqual({adults: 0, children:0})
+    expect(sp.occupancy()).toEqual({adults: 0, children: 0})
   })
+
+  it("Total adults and total children always increment", function() {
+    sp.enter(0,0)
+    expect(sp.enter(2,2)).toBeTrue()
+    expect(sp.enter(3,3)).toBeTrue()
+    expect(sp.enter(4,4)).toBeTrue()
+    expect(sp.leave(1,1)).toBeTrue()
+    expect(sp.enter(3,3)).toBeTrue()
+    expect(sp.occupancy()).toEqual({adults: 11, children: 11})
+    expect(sp.total()).toEqual({adults: 12, children: 12})
+
+  })
+
+
 })
