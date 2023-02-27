@@ -10,10 +10,10 @@ class Softplay {
 
     enter(numAdults, numChildren) {
         if(numAdults >= numChildren) {
-            this.adults += numAdults,
-            this.children += numChildren,
-            this.allAdults += numAdults, 
-            this.allChildren += numChildren,
+            this.adults += numAdults
+            this.children += numChildren
+            this.allAdults += numAdults
+            this.allChildren += numChildren
             return true
         }    else {
             return false
