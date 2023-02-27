@@ -1,38 +1,40 @@
 // TODO: Create a class in this file to contain all of the logic for this exercise
 class Softplay {
-    constructor(adults, children) {
-        this.adults = adults
-        this.children = children
-    }
+  constructor(adults, children) {
+    this.adults = adults
+    this.children = children
+  }
 
-    occupancy(adults, children) {
-        return {
-            adults: this.adults,
-            children: this.children
-        }
+  occupancy(adults, children) {
+    return {
+      adults: this.adults,
+      children: this.children
     }
+  }
 
-    //allowed to enter or not:
-    enter(numAdults, numChildren) {
-        if (numAdults < numChildren) {
-            return false
-        } else if (numAdults >= numChildren) {
-            this.adults = + numAdults
-            this.children += numChildren
-            return true
-        }
+  enter(numAdults, numChildren) {
+    if (numAdults < numChildren) {
+      return false
+    } else if (numAdults >= numChildren) {
+      this.adults = +numAdults
+      this.children += numChildren
+      return true
     }
+  }
 
-    //allowed to leave or not:
-    leave(numAdults, numChildren) {
-    if (numChildren > numAdults || this.children - numChildren > this.adults - numAdults || this.children > this.adults){
-            return false
-        } else if (numAdults >= numChildren) {
-            this.adults -= numAdults
-            this.children -= numChildren
-            return true
-        } 
+  leave(numAdults, numChildren) {
+    if (
+      numChildren > numAdults ||
+      this.children - numChildren > this.adults - numAdults ||
+      this.children > this.adults
+    ) {
+      return false
+    } else if (numAdults >= numChildren) {
+      this.adults -= numAdults
+      this.children -= numChildren
+      return true
     }
+  }
 }
 
 console.log('SoftPlay:', Softplay)

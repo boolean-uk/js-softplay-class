@@ -31,6 +31,7 @@ describe("Soft Play", () => {
     expect(sp.leave(1, 0)).toBeTrue()
     expect(sp.occupancy()).toEqual({ adults: 1, children: 1 })
   })
+  
   //:)
   it("Adult cannot leave when adults 1 and children 1", function () {
     sp.enter(1, 1)
