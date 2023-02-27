@@ -16,7 +16,7 @@
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-promise": "^5.1.1",
-    "husky": "^7.0.4",
+    "husky": "^8.0.3",
     "jasmine": "^3.10.0",
     "prettier": "^2.6.2"
   }
