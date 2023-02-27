@@ -27,7 +27,7 @@ class Softplay {
     leave(numAdults, numChildren) {
     if (numChildren > numAdults || this.children - numChildren > this.adults - numAdults || this.children > this.adults){
             return false
-        } else if (numAdults <= numChildren) {
+        } else if (numAdults >= numChildren) {
             this.adults -= numAdults
             this.children -= numChildren
             return true
