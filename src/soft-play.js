@@ -38,6 +38,16 @@ class SoftPlay {
             return true
         }
     }
+
+    total(numAdults, numChildren) {
+        const totalA = this.adults + numAdults
+        const totalB = this.children + numChildren
+        const totalObj = {
+            audlts: totalA,
+            children: totalB
+        }
+        return totalObj
+    }
 }
 
 // TODO: Change the undefined value below to the name of your class

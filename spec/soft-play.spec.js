@@ -78,4 +78,9 @@ describe("Soft Play", () => {
     expect(sp.leave(2,2)).toBeTrue()
     expect(sp.occupancy()).toEqual({adults: 0, children:0})
   })
+
+  it("Total should update with each adult entering", function() {
+    sp.enter(1,1)
+    expect(sp.total()).toEqual({ adults: 1, children: 1 })
+  })
 })
