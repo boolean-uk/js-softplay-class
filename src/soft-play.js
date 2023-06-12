@@ -3,10 +3,6 @@ class Softplay {
   constructor() {
     this.adults = 0
     this.children = 0
-    this.total = {
-      adults: 0,
-      children: 0
-    }
   }
 
   occupancy() {
@@ -16,8 +12,6 @@ class Softplay {
     }
   }
 
-
-  
   enter(numAdults, numChildren) {
     if (numAdults < numChildren) {
       return false
