@@ -3,16 +3,24 @@ class Softplay {
     constructor(numAdults, numChildren) {
       this.numAdults = numAdults
       this.numChildren = numChildren
+      this.totalAdults = numAdults
+      this.totalChildren = numChildren
     }
   
     occupancy() {
       return { adults: this.numAdults, children: this.numChildren }
+    }
+
+    total() {
+      return { adults: this.totalAdults , children: this.totalChildren}
     }
   
     enter(numAdults, numChildren) {
       if (numAdults >= numChildren) {
         this.numAdults += numAdults
         this.numChildren += numChildren
+        this.totalAdults += numAdults
+        this.totalChildren += numChildren
         return true
       } else {
         return false
