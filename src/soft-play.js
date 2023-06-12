@@ -20,20 +20,23 @@ class Softplay {
     }
   
     leave(numAdults, numChildren) {
-      
+      if (numChildren > numAdults) {
+        return false
+      } else if (this.numAdults - numAdults < this.numChildren - numChildren) {
+        return false
+      } else if (numAdults === 0 && numChildren > 1) {
+        return false
+      } else if (numAdults > this.numAdults || numChildren > this.numChildren) {
+        return false
+      } else {
+        this.numAdults -= numAdults
+        this.numChildren -= numChildren
+        return true
+      }
     }
   }
   
   const sp = new Softplay(0, 0)
-  console.log(sp)
-  console.log(sp.enter(2, 2))
-  console.log(sp)
-  console.log(sp.enter(2, 2))
-  console.log(sp)
-  console.log(sp.occupancy())
-  console.log(sp.enter(2, 2))
-  console.log(sp.occupancy())
-  console.log(sp.enter(1, 2))
-  console.log(sp.occupancy())
+
   // TODO: Change the undefined value below to the name of your class
-  module.exports = undefined
+  module.exports = Softplay
