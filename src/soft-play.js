@@ -16,6 +16,8 @@ class Softplay {
     }
   }
 
+
+  
   enter(numAdults, numChildren) {
     if (numAdults < numChildren) {
       return false
@@ -25,11 +27,19 @@ class Softplay {
     }
     return true
   }
-  
-}
 
-// const sp = new Softplay(0, 0)
-// sp.enter(2, 1)
+  leave(numAdults, numChildren) {
+    if (numChildren > numAdults) {
+      return false
+    } else if (this.adults - numAdults < this.children - numChildren) {
+      return false
+    } else {
+      this.adults -= numAdults
+      this.children -= numChildren
+      return true
+    }
+  }
+}
 
 // TODO: Change the undefined value below to the name of your class
 module.exports = Softplay
