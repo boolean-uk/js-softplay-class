@@ -52,3 +52,4 @@ class Softplay {
 
 // TODO: Change the undefined value below to the name of your class
 module.exports = undefined
+module.exports = Softplay
