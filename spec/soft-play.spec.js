@@ -79,16 +79,10 @@ describe('Soft Play', () => {
     expect(sp.occupancy()).toEqual({ adults: 0, children: 0 })
   })
 
-  it('If Adult or Children leave total should remain the same', function () {
-    sp.enter(2, 2)
-    expect(sp.enter(2, 2)).toBeTrue()
+  it('If Adult or Children leave, total should remain the same', function () {
+    sp.enter(3, 2)
     sp.leave(1, 0)
-    expect(sp.leave(1, 0)).toBeTrue()
-    expect(sp.total()).toEqual({
-      adults: 1,
-      children: 2,
-      totalAdults: 2,
-      totalChildren: 1
-    })
+    expect(sp.occupancy()).toEqual({ adults: 2, children: 2 })
+    expect(sp.total()).toEqual({ adults: 3, children: 2 })
   })
 })

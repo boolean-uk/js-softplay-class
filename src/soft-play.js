@@ -36,16 +36,19 @@ class Softplay {
     }
   }
 
-  total(totalAdults, totalChildren) {
-    this.totalAdults += totalAdults
-    this.totalChildren += totalChildren
-    return { totalAdults: this.totalAdults, totalChildren: this.totalChildren }
+  total() {
+    return {
+      adults: this.totalAdults,
+      children: this.totalChildren
+    }
   }
 }
 
 const sp = new Softplay(0, 0)
-sp.enter(2, 1)
+sp.enter(5, 2)
 sp.leave(1, 0)
+console.log('total', sp.total())
+console.log('occupancy', sp.occupancy())
 console.log(sp)
 
 // TODO: Change the undefined value below to the name of your class
