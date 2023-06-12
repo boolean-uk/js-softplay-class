@@ -8,6 +8,7 @@ class Softplay {
       children: 0
     }
   }
+
   occupancy() {
     return {
       adults: this.adults,
