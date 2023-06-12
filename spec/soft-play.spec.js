@@ -78,4 +78,21 @@ describe('Soft Play', () => {
     expect(sp.leave(2, 2)).toBeTrue()
     expect(sp.occupancy()).toEqual({ adults: 0, children: 0 })
   })
+
+  it('tracking total with 1 successful entry', function () {
+    sp.enter(2, 2)
+    expect(sp.total()).toEqual({ totalAdults: 2, totalChildren: 2 })
+  })
+
+  it('tracking total with 2 successful entry', function () {
+    sp.enter(2, 2)
+    sp.enter(4, 2)
+    expect(sp.total()).toEqual({ totalAdults: 6, totalChildren: 4 })
+  })
+
+  it('tracking total with 1 successful entry & 1 successful leave', function () {
+    sp.enter(4, 2)
+    sp.leave(1, 1)
+    expect(sp.total()).toEqual({ totalAdults: 4, totalChildren: 2 })
+  })
 })
