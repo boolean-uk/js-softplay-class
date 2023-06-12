@@ -1,9 +1,9 @@
-// TODO: Create a class in this file to contain all of the logic for this exercise
-
 class Softplay {
-  constructor(numAdults, numChildren) {
+  constructor(numAdults, numChildren, totalAdults, totalChildren) {
     this.numAdults = numAdults
     this.numChildren = numChildren
+    this.totalAdults = numAdults
+    this.totalChildren = numChildren
   }
 
   occupancy() {
@@ -12,10 +12,10 @@ class Softplay {
 
   enter(numAdults, numChildren) {
     if (numChildren <= numAdults) {
-      this.numAdults = numAdults
-      this.totalAdults = numAdults
-      this.totalChildren = numChildren
-      this.numChildren = numChildren
+      this.numAdults += numAdults
+      this.totalAdults += numAdults
+      this.totalChildren += numChildren
+      this.numChildren += numChildren
       return true
     } else {
       return false
@@ -37,16 +37,14 @@ class Softplay {
   }
 
   total() {
-    return {
-      adults: this.totalAdults,
-      children: this.totalChildren
-    }
+    return { adults: this.totalAdults, children: this.totalChildren }
   }
 }
 
 const sp = new Softplay(0, 0)
 sp.enter(5, 2)
 sp.leave(1, 0)
+sp.enter(3, 1)
 console.log('total', sp.total())
 console.log('occupancy', sp.occupancy())
 console.log(sp)
