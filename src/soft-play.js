@@ -21,6 +21,7 @@ class Softplay {
     } else {
       this.Adults += numAdults
       this.Children += numChildren
+      this.total(numAdults, numChildren)
       return true
     }
   }
@@ -45,4 +46,5 @@ class Softplay {
     return this.totalIn
   }
 }
+
 module.exports = Softplay
