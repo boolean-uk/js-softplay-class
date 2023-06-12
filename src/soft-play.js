@@ -32,13 +32,23 @@ class Softplay {
         
     }
 
-
-
+leave(numAdults, numChildren){
+    // A child is not attempting to leave without an adult
+    if(this.numChildren > this.numAdults || numChildren > numAdults){
+        return false
+    } else {
+        console.log(this.numAdults, this.numChildren)
+        console.log(numAdults, numChildren) 
+        this.numAdults = numAdults - this.numAdults
+        this.numChildren = numChildren - this.numChildren
+        return true
+    }   
+}
 }
 
 const people = new Softplay(0, 0)
-people.enter(7,2)
-console.log(people, people.enter(7, 2))
+people.enter(5,3)
+console.log(people.leave(10, 4), people)
 
 
 // TODO: Change the undefined value below to the name of your class
