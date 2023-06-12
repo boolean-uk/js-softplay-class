@@ -6,23 +6,15 @@ class Softplay {
         this.numChildren = numChildren
     }
 
-    // Occupancy method that contains the number of adults and children currently inside the soft play center
-    // occupancy(){
-    //     const obj = {
-    //         adults: this.numAdults,
-    //         children: this.numChildren
-    //     }
-    //     return obj
-    // }
-
-
+    
+    
     // Every child entering the soft play center is accompanied by at least 1 adult.
     enter(numAdults, numChildren){
-        if (numAdults > numChildren){
+        if (numAdults >= numChildren){
             // `numAdults` and `numChildren` should be added to the current totals.
             this.numAdults = numAdults
             this.numChildren = numChildren
-
+            
             // the method should return `true`
             return true
         } else {
@@ -31,25 +23,33 @@ class Softplay {
         }
         
     }
+    
+    leave(numAdults, numChildren){
+        // A child is not attempting to leave without an adult
+        if(this.numChildren >= this.numAdults || numChildren >= numAdults){
+            return false
+        } else {
+            // console.log(this.numAdults, this.numChildren)
+            // console.log(numAdults, numChildren) 
+            this.numAdults = numAdults - this.numAdults
+            this.numChildren = numChildren - this.numChildren
+            return true
+        }   
+    }
 
-leave(numAdults, numChildren){
-    // A child is not attempting to leave without an adult
-    if(this.numChildren > this.numAdults || numChildren > numAdults){
-        return false
-    } else {
-        console.log(this.numAdults, this.numChildren)
-        console.log(numAdults, numChildren) 
-        this.numAdults = numAdults - this.numAdults
-        this.numChildren = numChildren - this.numChildren
-        return true
-    }   
-}
+    // This method should return an object with two keys - `adults` should contain the number of adults currently inside the soft play center and `children` the number of children. 
+    occupancy(){
+        const obj = {
+            adults: this.numAdults,
+            children: this.numChildren
+        }
+        return obj
+    }
 }
 
-const people = new Softplay(0, 0)
-people.enter(5,3)
-console.log(people.leave(10, 4), people)
+// const people = new Softplay(0, 0)
+// console.log(people.enter(3, 5), people.leave(10, 6), people.occupancy())
 
 
 // TODO: Change the undefined value below to the name of your class
-module.exports = undefined
+module.exports = Softplay
