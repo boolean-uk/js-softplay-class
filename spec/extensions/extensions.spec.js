@@ -1,4 +1,4 @@
-const Softplay = require('../src/soft-play.js')
+const Softplay = require('../../src/soft-play.js')
 
 describe('SoftPlay Extensions', () => {
   let sp
