@@ -40,8 +40,8 @@ leave (numAdults, numChildren)
 occupancy ()
 {
     return {
-        numAdults: this.numAdults,
-        numChildren: this.numChildren 
+        adults: this.numAdults,
+        children: this.numChildren 
     }
 }
 }
