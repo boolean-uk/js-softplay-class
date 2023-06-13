@@ -26,9 +26,9 @@ If any of these checks fail, the method should return `false`. Otherwise, the me
 ### leave(numAdults, numChildren)
 This method is used to register adults and children leaving the soft play center. The method should check for the following conditions:
 
-* A child is not attempting to leave without an adult
-* The number of adults and children left inside the center will not cause there to be more children than adults (there must be at least 1 adult for 1 child inside the center at all times)
-* Every child leaving the soft play center is accompanied by at least 1 adult.
+<!-- * A child is not attempting to leave without an adult -->
+<!-- * The number of adults and children left inside the center will not cause there to be more children than adults (there must be at least 1 adult for 1 child inside the center at all times) -->
+<!-- * Every child leaving the soft play center is accompanied by at least 1 adult. -->
 * The number of adults and children attempting to leave is not greater than the number currently inside the center
 
 If any of these checks fail, method should return `false`. Otherwise, the method should return `true` and `numAdults` and `numChildren` should be deducted from the current totals.
