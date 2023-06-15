@@ -9,8 +9,15 @@ class Softplay {
     this.totalNumChildren += numChildren
   }
 
+  /**
+   * @brief Checks in customers into softplay, if valid
+   * @param {Number} numAdults The number of adults entering
+   * @param {Number} numChildren The number of children entering
+   * @returns {Boolean} Boolean based on whether the people are allowed to enter
+   * @exception OutOfBounds exception on negative numAdults or numChildren
+   */
   enter(numAdults, numChildren) {
-    if(numAdults < numChildren) {
+    if (numAdults < numChildren) {
       return false
     }
     this.numAdults += numAdults
@@ -26,15 +33,15 @@ class Softplay {
     const postNumAdults = this.numAdults - numAdults
     const postNumChildren = this.numChildren - numChildren
 
-    if(postNumAdults < 0 || postNumChildren < 0) {
+    if (postNumAdults < 0 || postNumChildren < 0) {
       return false
     }
 
-    if(numAdults < numChildren) {
+    if (numAdults < numChildren) {
       return false
     }
 
-    if(postNumAdults < postNumChildren) {
+    if (postNumAdults < postNumChildren) {
       return false
     }
     this.numAdults = postNumAdults
@@ -52,7 +59,7 @@ class Softplay {
   total() {
     return {
       adults: this.totalNumAdults,
-      children: this.totalNumChildren,
+      children: this.totalNumChildren
     }
   }
 }
