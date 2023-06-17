@@ -23,15 +23,32 @@ class Softplay {
   }
 
   leave(numAdults, numChildren) {
-    if (numChildren > numAdults) {
+    const occupancy = this.occupancy()
+    console.log(occupancy)
+    // More adults cannot leave than are in the soft play center
+    if (occupancy.adults - numAdults < 0) {
       return false
-    } else if (this.adults - numAdults < this.children - numChildren) {
-      return false
-    } else {
-      this.adults -= numAdults
-      this.children -= numChildren
-      return true
     }
+    // More children cannot leave than are in the soft play center
+    if (occupancy.children - numChildren < 0) {
+      return false
+    }
+    // Adult cannot leave with multiple children
+    // Child cannot leave on own
+    // Multiple adults can leave with multiple children
+    if (numChildren / numAdults > 1) {
+      return false
+    }
+    // Adult can leave when adults 2 and children 1
+    // Adult cannot leave when adults 1 and children 1
+    // Adult cannot leave when adults 2 and children 2
+    if (this.adults - numAdults < this.children - numChildren) {
+      return false
+    }
+
+    this.adults -= numAdults
+    this.children -= numChildren
+    return true
   }
 }
 
