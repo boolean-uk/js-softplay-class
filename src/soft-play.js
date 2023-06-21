@@ -39,7 +39,6 @@ class Softplay {
 
   total() {
     return { totalAdults: this.totalAdults, totalChildren: this.totalChildren }
-
   }
 }
 
