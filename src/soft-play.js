@@ -4,6 +4,8 @@ class Softplay {
   constructor(numAdults, numChildren) {
     this.numAdults = numAdults
     this.numChildren = numChildren
+    this.totalAdults = this.numAdults + numAdults
+    this.totalChildren = this.numChildren + numChildren
   }
 
   enter(numAdults, numChildren) {
@@ -12,6 +14,8 @@ class Softplay {
     } else {
       this.numAdults += numAdults
       this.numChildren += numChildren
+      this.totalAdults += numAdults
+      this.totalChildren += numChildren
       return true
     }
   }
@@ -39,19 +43,37 @@ class Softplay {
       children: this.numChildren
     }
   }
+
+  total() {
+    return {
+      adults: this.totalAdults,
+      children: this.totalChildren
+    }
+  }
 }
 
-// INITIAL TEST
+// TESTS
+// INITIAL
 const sp = new Softplay(0, 0)
+console.log(sp)
 console.log(sp.occupancy())
 
-// TEST ENTER
+// ENTER
 console.log(sp.enter(10, 6))
 console.log(sp.occupancy())
+console.log(sp.enter(3, 3))
+console.log(sp.occupancy())
 
-// TEST LEAVE
+// LEAVE
 console.log(sp.leave(5, 4))
 console.log(sp.occupancy())
+
+// ENTER
+console.log(sp.enter(8, 5))
+console.log(sp.occupancy())
+
+// TOTAL ENTERED
+console.log(sp.total())
 
 // TODO: Change the undefined value below to the name of your class
 module.exports = Softplay
