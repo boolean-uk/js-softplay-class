@@ -3,6 +3,8 @@ class SoftPlay {
   constructor() {
     this.adults = 0
     this.children = 0
+    this.totalAdults = 0
+    this.totalChildren = 0
   }
 
   enter(numOfAdults, numOfChildren) {
@@ -11,6 +13,8 @@ class SoftPlay {
     } else {
       this.adults += numOfAdults
       this.children += numOfChildren
+      this.totalAdults += numOfAdults
+      this.totalChildren += numOfChildren
       return true
     }
   }
@@ -34,6 +38,13 @@ class SoftPlay {
       return true
     }
   }
+
+  total() {
+    return {
+      'Total Adults': this.totalAdults,
+      'Total Children': this.totalChildren
+    }
+  }
 }
 
 const funHouse = new SoftPlay()
@@ -49,6 +60,8 @@ console.log(funHouse.leave(1, 0))
 console.log(funHouse.occupancy())
 console.log(funHouse.leave(1, 1))
 console.log(funHouse.occupancy())
+
+console.log(funHouse.total())
 
 // TODO: Change the undefined value below to the name of your class
 module.exports = SoftPlay
