@@ -16,11 +16,12 @@ class Softplay {
   leave(numOfAdults, numOfChildren) {
     if (
       numOfAdults > this.numOfAdults ||
-      numOfChildren > this.numOfChildren || numOfChildren > numOfAdults ||
+      numOfChildren > this.numOfChildren ||
+      numOfChildren > numOfAdults ||
       this.numOfChildren - numOfChildren > this.numOfAdults - numOfAdults
     ) {
-        return false
-    } 
+      return false
+    }
 
     this.numOfAdults -= numOfAdults
     this.numOfChildren -= numOfChildren
@@ -36,8 +37,8 @@ class Softplay {
 
   total() {
     return {
-        totalAdults: this.numOfAdults,
-        totalChildren: this.numOfChildren
+      totalAdults: this.numOfAdults,
+      totalChildren: this.numOfChildren
     }
   }
 }
