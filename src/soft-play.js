@@ -4,8 +4,12 @@
 
 class Softplay {
   constructor(numAdults, numChildren) {
-    this.numAdults = numAdults
-    this.numChildren = numChildren
+    //this.numAdults = numAdults
+    //this.numChildren = numChildren
+    this.numAdults = 0
+    this.numChildren = 0
+    this.totalAdults = 0
+    this.totalChildren = 0
   }
 
   enter(numAdults, numChildren) {
@@ -17,10 +21,37 @@ class Softplay {
     // Update the totals
     this.numAdults += numAdults
     this.numChildren += numChildren
+    this.totalAdults += numAdults
+    this.totalChildren += numChildren
 
     return true
   }
 
+  // leave(numAdults, numChildren)
+
+  leave(numAdults, numChildren) {
+    if (numChildren > 0 && numAdults === 0) {
+      return false
+    }
+
+    if (this.numAdults - numAdults < this.numChildren - numChildren) {
+      return false
+    }
+
+    if (numChildren > 0 && numAdults < numChildren) {
+      return false
+    }
+
+    if (numAdults > this.numAdults || numChildren > this.numChildren) {
+      return false
+    }
+
+    this.numAdults -= numAdults
+    this.numChildren -= numChildren
+
+    return true
+  }
+  /*
   getCounts() {
     return {
       numAdults: this.numAdults,
@@ -28,13 +59,39 @@ class Softplay {
     }
   }
 }
+*/
+occupancy() {
+    return {
+      adults: this.numAdults,
+      children: this.numChildren,
+    }
+  }
+}
 
-const softplayCenter = new Softplay(2, 5)
 
-console.log(softplayCenter.enter(3, 2)) // true (3 adults and 2 children entering)
-console.log(softplayCenter.getCounts()) // { numAdults: 5, numChildren: 7 }
+const sp = new Softplay(0, 0);
 
-console.log(softplayCenter.enter(1, 3)) // false (not enough adults for 3 children)
-console.log(softplayCenter.getCounts()) // { numAdults: 5, numChildren: 7 }
+console.log(sp.occupancy()) // { adults: 0, children: 0 }
 
-module.exports = Softplay
+
+console.log(sp.enter(2, 1)) // true
+console.log(sp.occupancy()) // { adults: 2, children: 1 }
+
+
+console.log(sp.leave(1, 0)) // true
+console.log(sp.occupancy()) // { adults: 1, children: 1 }
+
+
+console.log(sp.enter(0, 1)) // false
+console.log(sp.occupancy()) // { adults: 1, children: 1 }
+
+
+console.log(sp.leave(1, 0)) // false
+console.log(sp.occupancy()) // { adults: 1, children: 1 }
+
+
+console.log(sp.leave(1, 1)) // true
+console.log(sp.occupancy()) // { adults: 0, children: 0 }
+
+
+module.exports = Softplay 
