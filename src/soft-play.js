@@ -1,7 +1,6 @@
-/* eslint-disable prettier/prettier */
 // TODO: Create a class in this file to contain all of the logic for this exercise
 
-class SoftPlay {
+class Softplay {
   constructor(numAdults, numChildren) {
     this.Adults = numAdults
     this.Children = numChildren
@@ -13,7 +12,10 @@ class SoftPlay {
       this.Adults += numAdults
       this.Children += numChildren
       this.Total = this.Adults + this.Children
-    } else return console.log('Child must be accompanied by an adult.')
+      return true
+    }
+    console.log('Child must be accompanied by an adult.')
+    return false
   }
 
   leave(numAdults, numChildren) {
@@ -24,25 +26,48 @@ class SoftPlay {
 
     const totalLeaving = numAdults + numChildren
     const totalLeft = this.Total - totalLeaving
-    console.log('checkNumbers', checkNumbers, 'total leaving:', totalLeaving)
 
     if (numChildren > 0 && numAdults === 0) {
-      return console.log('Child cannot leave without an adult!')
+      console.log('Child cannot leave without an adult!')
+      return false
     } else if (checkNumbers.Adults < checkNumbers.Children) {
-      return console.log('Too many adults leaving')
-    } else if (totalLeaving > totalLeft) {
-      return console.log('Too many people leaving softplay centre!!')
-    } else 
+      console.log('Too many adults leaving')
+      return false
+    } else if (totalLeaving > totalLeft && totalLeft !== 0) {
+      console.log('Too many people leaving softplay centre!!')
+      return false
+    }
     this.Adults -= numAdults
     this.Children -= numChildren
     this.Total = this.Adults + this.Children
+    return true
+  }
+
+  occupancy() {
+    return {
+      adults: this.Adults,
+      children: this.Children
+    }
   }
 }
 
-const softPlay1 = new SoftPlay(0, 0)
-softPlay1.enter(10, 10)
-softPlay1.leave(8, 8)
-console.log(softPlay1)
+const softPlay1 = new Softplay(0, 0)
+console.log(softPlay1.occupancy())
+
+softPlay1.enter(2, 1)
+console.log(softPlay1.occupancy())
+
+softPlay1.leave(1, 0)
+console.log(softPlay1.occupancy())
+
+softPlay1.enter(0, 1)
+console.log(softPlay1.occupancy())
+
+softPlay1.leave(1, 0)
+console.log(softPlay1.occupancy())
+
+softPlay1.leave(1, 1)
+console.log(softPlay1.occupancy())
 
 // TODO: Change the undefined value below to the name of your class
-module.exports = undefined
+module.exports = Softplay
