@@ -49,4 +49,41 @@ class SoftPlay {
   }
 }
 
+class SoftPlayMulti {
+  // this turned out to be an icky idea, probably better idea is the `extends` keyword?
+  constructor(centerName, numAdult, numChild) {
+    this.centerStats = {}
+    this.addCenter(centerName, numAdult, numChild)
+  }
+
+  addCenter(centerName, numAdult, numChild) {
+    this.centerStats[centerName] = {
+      adultPop: numAdult,
+      childPop: numChild
+    }
+  }
+
+  removeCenter(centerName) {
+    delete this.centerStats[centerName]
+  }
+
+  grandTotal() {
+    return Object.values(this.centerStats).reduce(
+      (a, b) => {
+        return {
+          adults: a.adults + b.adultPop,
+          children: a.children + b.childPop
+        }
+      },
+      { adults: 0, children: 0 }
+    )
+  }
+}
+
+const spm = new SoftPlayMulti('denver', 2, 2)
+spm.addCenter('london', 3, 36)
+spm.addCenter('tokyo', 2, 12)
+
+const bigTotal = spm.grandTotal()
+
 module.exports = SoftPlay
