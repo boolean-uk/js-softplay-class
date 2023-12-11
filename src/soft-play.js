@@ -9,7 +9,7 @@ class Softplay {
       adults: 0,
       children: 0
     }
-  };
+  }
 
   changeOccupancy(adultsOrChildren, difference) {
     this.currentTotals = {
@@ -23,7 +23,7 @@ class Softplay {
         [adultsOrChildren]: this.overallTotals[adultsOrChildren] + difference
       }
     }
-  };
+  }
 
   enter(numAdults, numChildren) {
     if (numAdults >= numChildren) {
@@ -33,7 +33,7 @@ class Softplay {
     } else {
       return false
     }
-  };
+  }
 
   leave(numAdults, numChildren) {
     const currentState = this.occupancy()
@@ -42,13 +42,15 @@ class Softplay {
       children: currentState.children - numChildren
     }
 
-    if (numAdults >= numChildren &&
+    if (
+      numAdults >= numChildren &&
       simulatedState.adults >= simulatedState.children &&
       simulatedState.adults >= 0 &&
-      simulatedState.children >= 0) {
+      simulatedState.children >= 0
+    ) {
       this.changeOccupancy('adults', -numAdults)
       this.changeOccupancy('children', -numChildren)
-        return true
+      return true
     } else {
       return false
     }
@@ -60,5 +62,3 @@ class Softplay {
 }
 
 module.exports = Softplay
-
-// Extension: to manage more centers, I'd 
