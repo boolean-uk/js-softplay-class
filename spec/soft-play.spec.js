@@ -6,7 +6,7 @@ describe("Soft Play", () => {
   beforeEach(() => {
     sp = new Softplay(0, 0)
   })
-  
+
   it("Initial state is empty", function() {
     expect(sp.occupancy()).toEqual({adults: 0, children: 0})
   })
