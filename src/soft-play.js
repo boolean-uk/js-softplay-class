@@ -9,40 +9,40 @@ class Softplay {
       this.numChildren = numChildren;
     }
   
-    enter(numAdults, numChildren) {
-      // Check conditions for entering
-      if (numChildren > 0 && numAdults >= numChildren) {
-        this.numAdults += numAdults;
-        this.numChildren += numChildren;
-        return true;
-      } else {
-        return false;
-      }
+enter(numAdults, numChildren) {
+    // Check conditions for entering
+    if (numChildren > 0 && numAdults >= numChildren) {
+    this.numAdults += numAdults;
+    this.numChildren += numChildren;
+    return true;
+    } else {
+    return false;
     }
-  
-    leave(numAdults, numChildren) {
-      // Check conditions for leaving
-      if (
-        numChildren > 0 &&
-        numAdults >= numChildren &&
-        this.numAdults >= numAdults &&
-        this.numChildren >= numChildren
-      ) {
-        this.numAdults -= numAdults;
-        this.numChildren -= numChildren;
-        return true;
-      } else {
-        return false;
-      }
+}
+
+leave(numAdults, numChildren) {
+    // Check conditions for leaving
+    if (
+    numChildren > 0 &&
+    numAdults >= numChildren &&
+    this.numAdults >= numAdults &&
+    this.numChildren >= numChildren
+    ) {
+    this.numAdults -= numAdults;
+    this.numChildren -= numChildren;
+    return true;
+    } else {
+    return false;
     }
-  
-    occupancy() {
-      return {
-        adults: this.numAdults,
-        children: this.numChildren,
-      };
-    }
-  }
+}
+
+occupancy() {
+    return {
+    adults: this.numAdults,
+    children: this.numChildren,
+    };
+}
+}
   
   const sp = new Softplay(0, 0);
   
