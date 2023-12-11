@@ -5,7 +5,10 @@ class Softplay {
       adults: 0,
       children: 0
     }
-    this.overallTotals = this.currentTotals
+    this.overallTotals = {
+      adults: 0,
+      children: 0
+    }
   };
 
   changeOccupancy(adultsOrChildren, difference) {
@@ -13,9 +16,12 @@ class Softplay {
       ...this.currentTotals,
       [adultsOrChildren]: this.currentTotals[adultsOrChildren] + difference
     }
-    this.overallTotals = {
-      ...this.overallTotals,
-      [adultsOrChildren]: this.overallTotals[adultsOrChildren] + difference
+
+    if (difference > 0) {
+      this.overallTotals = {
+        ...this.overallTotals,
+        [adultsOrChildren]: this.overallTotals[adultsOrChildren] + difference
+      }
     }
   };
 
