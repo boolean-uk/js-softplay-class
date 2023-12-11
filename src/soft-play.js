@@ -33,6 +33,13 @@ class Softplay {
       children: this.numOfChildren
     }
   }
+
+  total() {
+    return {
+        totalAdults: this.numOfAdults,
+        totalChildren: this.numOfChildren
+    }
+  }
 }
 
 const softPlay = new Softplay(0, 0)
@@ -41,6 +48,8 @@ console.log('---------------')
 console.log('Occupancy', softPlay.occupancy())
 console.log('---------------')
 console.log('Leave', softPlay.leave(1, 1))
+console.log('---------------')
+console.log('Total', softPlay.total())
 
 // TODO: Change the undefined value below to the name of your class
 module.exports = Softplay
