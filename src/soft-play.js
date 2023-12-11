@@ -2,13 +2,15 @@ class SoftPlay {
   constructor(numAdult, numChild) {
     this.adultPop = numAdult
     this.childPop = numChild
+    this.totalAdultPop = numAdult
+    this.totalChildPop = numChild
   }
 
   enter(numAdult, numChild) {
     const loneEnteringChild = numChild > numAdult
     if (!loneEnteringChild) {
-      this.adultPop += numAdult
-      this.childPop += numChild
+      this.totalAdultPop = this.adultPop += numAdult
+      this.totalChildPop = this.childPop += numChild
     }
     return !loneEnteringChild
   }
@@ -36,6 +38,13 @@ class SoftPlay {
     return {
       adults: this.adultPop,
       children: this.childPop
+    }
+  }
+
+  total() {
+    return {
+      adults: this.totalAdultPop,
+      children: this.totalChildPop
     }
   }
 }
