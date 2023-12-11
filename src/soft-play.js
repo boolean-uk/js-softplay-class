@@ -6,27 +6,27 @@ class Softplay {
     this.numChildren = numChildren
   }
 
+  enter(numAdults, numChildren) {
+    if (this.numAdults < this.numChildren) {
+      return false
+    } else {
+      this.numAdults += numAdults
+      this.numChildren += numChildren
+      return true
+    }
+  }
+
   occupancy() {
     return {
       adults: this.numAdults,
       children: this.numChildren
     }
   }
-
-  enter(numAdults, numChildren) {
-    if (numAdults === 0 && numChildren > 0) {
-      return false
-    } else {
-      return true
-    }
-  }
 }
 
 const sp = new Softplay(0, 0)
-// console.log(sp)
-// console.log(sp.enter())
-const test = sp.occupancy()
-console.log(test)
+console.log(sp.enter(2, 1))
+console.log(sp.occupancy())
 
 // TODO: Change the undefined value below to the name of your class
 module.exports = Softplay
