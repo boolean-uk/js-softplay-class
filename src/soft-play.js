@@ -59,6 +59,10 @@ class Softplay {
   occupancy() {
     return this.currentTotals
   }
+
+  totalStats() {
+    return this.overallTotals
+  }
 }
 
 module.exports = Softplay
