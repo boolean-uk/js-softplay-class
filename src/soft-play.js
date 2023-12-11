@@ -1,20 +1,20 @@
 // TODO: Create a class in this file to contain all of the logic for this exercise
 class Softplay {
     constructor(numAdults, numChildren) {
-      this.numAdults = numAdults;
-      this.numChildren = numChildren;
+        this.numAdults = numAdults;
+        this.numChildren = numChildren;
     }
   
 enter(numAdults, numChildren) {
     // Check conditions for entering
     if (numChildren > 0 && numAdults >= numChildren) {
-    this.numAdults += numAdults;
-    this.numChildren += numChildren;
-    return true;
-    } else {
-    return false;
+        this.numAdults += numAdults;
+        this.numChildren += numChildren;
+        return true;
+        } else {
+        return false;
+        }
     }
-}
 
 leave(numAdults, numChildren) {
     // Check conditions for leaving
