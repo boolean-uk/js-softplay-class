@@ -4,7 +4,7 @@ describe("Soft Play", () => {
   let sp
 
   beforeEach(() => {
-    sp = new Softplay(0, 0, 0, 0)
+    sp = new Softplay(0, 0)
   })
   
   it("Initial state is empty", function() {
