@@ -1,8 +1,4 @@
 // TODO: Create a class in this file to contain all of the logic for this exercise
-// src/soft-play.js
-
-// src/soft-play.js
-
 class Softplay {
     constructor(numAdults, numChildren) {
       this.numAdults = numAdults;
