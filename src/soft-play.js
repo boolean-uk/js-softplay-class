@@ -42,22 +42,22 @@ occupancy() {
   
   const sp = new Softplay(0, 0)
   
-  console.log(sp.occupancy()) // { adults: 0, children: 0 }
+  console.log(sp.occupancy())
   
-  console.log(sp.enter(2, 1)) // true
-  console.log(sp.occupancy()) // { adults: 2, children: 1 }
+  console.log(sp.enter(2, 1)) 
+  console.log(sp.occupancy()) 
   
-  console.log(sp.leave(1, 0)) // true
-  console.log(sp.occupancy()) // { adults: 1, children: 1 }
+  console.log(sp.leave(1, 0))
+  console.log(sp.occupancy()) 
   
-  console.log(sp.enter(0, 1)) // false
-  console.log(sp.occupancy()) // { adults: 1, children: 1 }
+  console.log(sp.enter(0, 1))
+  console.log(sp.occupancy()) 
   
-  console.log(sp.leave(1, 0)) // false
-  console.log(sp.occupancy()) // { adults: 1, children: 1 }
+  console.log(sp.leave(1, 0)) 
+  console.log(sp.occupancy()) 
   
-  console.log(sp.leave(1, 1)) // true
-  console.log(sp.occupancy()) // { adults: 0, children: 0 }
+  console.log(sp.leave(1, 1))
+  console.log(sp.occupancy()) 
   
 
 // TODO: Change the undefined value below to the name of your class
