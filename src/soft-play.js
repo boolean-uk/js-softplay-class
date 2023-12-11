@@ -40,7 +40,7 @@ occupancy() {
 }
 }
   
-  const sp = new Softplay(0, 0);
+  const sp = new Softplay(0, 0)
   
   console.log(sp.occupancy()) // { adults: 0, children: 0 }
   
