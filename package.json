@@ -4,6 +4,7 @@
   "description": "",
   "scripts": {
     "test": "npx eslint src && npx jasmine",
+    "test-extensions":"jasmine spec/soft-play.spec.js",
     "prepare": "husky install"
   },
   "prettier": "@boolean-uk/boolean-prettier-config",
