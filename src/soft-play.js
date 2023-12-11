@@ -27,8 +27,8 @@ class Softplay {
 
   enter(numAdults, numChildren) {
     if (numAdults >= numChildren) {
-      this.changeOccupancy("adults", numAdults)
-      this.changeOccupancy("children", numChildren)
+      this.changeOccupancy('adults', numAdults)
+      this.changeOccupancy('children', numChildren)
       return true
     } else {
       return false
@@ -46,8 +46,8 @@ class Softplay {
       simulatedState.adults >= simulatedState.children &&
       simulatedState.adults >= 0 &&
       simulatedState.children >= 0) {
-        this.changeOccupancy("adults", -numAdults)
-        this.changeOccupancy("children", -numChildren)
+      this.changeOccupancy('adults', -numAdults)
+      this.changeOccupancy('children', -numChildren)
         return true
     } else {
       return false
@@ -59,5 +59,6 @@ class Softplay {
   }
 }
 
-// TODO: Change the undefined value below to the name of your class
 module.exports = Softplay
+
+// Extension: to manage more centers, I'd 
