@@ -24,15 +24,30 @@ class SoftPlay {
     }
     const totalLeaving = numAdults + numChildren
     const totalLeft = this.total - totalLeaving
-    console.log('checkNumbers', checkNumbers)
-    console.log('totalLeaving', totalLeaving)
-    console.log('totalLeft', totalLeft)
+    // console.log('checkNumbers', checkNumbers)
+    // console.log('totalLeaving', totalLeaving)
+    // console.log('totalLeft', totalLeft)
+    if (numChildren > 0 && numAdults === 0) {
+      console.log(`A child cannot leave without an adult`)
+      return false
+    } else if (checkNumbers.adults < checkNumbers.children) {
+      console.log(`Too many adults laeving!`)
+      return false
+    } else if (totalLeaving > totalLeft) {
+      console.log(`Too many people leaving the softplay!!!`)
+      return false
+    } else if (numAdults < numChildren) {
+      console.log(`One adult can take One childrean at a time!`)
+      return false
+    } else this.adults -= numAdults
+    this.children -= numChildren
+    this.total = this.adults + this.children
   }
 }
 
 const numOfPeople = new SoftPlay(0, 0)
 
-numOfPeople.enter(4, 3)
+numOfPeople.enter(3, 3)
 
 numOfPeople.leave(1, 1)
 console.log(numOfPeople)
