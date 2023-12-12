@@ -11,9 +11,9 @@ class SoftPlay {
       this.adults += numAdults
       this.children += numChildren
       this.total = this.adults + this.children
-
       return true
-    } else console.log(`Child must be accompanied by an adult`)
+    }
+    console.log(`Child must be accompanied by an adult`)
     return false
   }
 
@@ -22,24 +22,24 @@ class SoftPlay {
       adults: this.adults - numAdults,
       children: this.children - numChildren
     }
+
     const totalLeaving = numAdults + numChildren
     const totalLeft = this.total - totalLeaving
-    // console.log('checkNumbers', checkNumbers)
-    // console.log('totalLeaving', totalLeaving)
-    // console.log('totalLeft', totalLeft)
+
     if (numChildren > 0 && numAdults === 0) {
       console.log(`A child cannot leave without an adult`)
       return false
     } else if (checkNumbers.adults < checkNumbers.children) {
-      console.log(`Too many adults laeving!`)
+      console.log(`Too many adults leaving!`)
       return false
-    } else if (totalLeaving > totalLeft) {
+    } else if (totalLeaving > totalLeft && totalLeft !== 0) {
       console.log(`Too many people leaving the softplay!!!`)
       return false
     } else if (numAdults < numChildren) {
       console.log(`One adult can take One childrean at a time!`)
       return false
-    } else this.adults -= numAdults
+    }
+    this.adults -= numAdults
     this.children -= numChildren
     this.total = this.adults + this.children
     return true
@@ -66,10 +66,10 @@ console.log(numOfPeople.occupancy())
 numOfPeople.leave(1, 1)
 console.log(numOfPeople.occupancy())
 
-numOfPeople.enter(5, 3)
+numOfPeople.enter(3, 3)
 console.log(numOfPeople.occupancy())
 
 console.log(numOfPeople)
 
 // TODO: Change the undefined value below to the name of your class
-module.exports = undefined
+module.exports = SoftPlay
