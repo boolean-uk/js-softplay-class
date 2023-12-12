@@ -10,22 +10,11 @@ module.exports = {
   parserOptions: {
     ecmaVersion: 'latest'
   },
-
-  
-  overrides: [
-    {
-      files: ['src/soft-play.js'],
-      rules: {
-        'no-console': 'error'
-      },
-      parserOptions: {
-        ecmaVersion: 'latest',
-      },
-      scripts: {
-        "lint": "eslint --fix --ext .js"
-    }
-    },
-  ],
-};
+  rules: {
+    'prettier/prettier': ['error'],
+    'no-undef': 'off',
+    'no-unused-vars': 'off'
+  }
+}
 
 
