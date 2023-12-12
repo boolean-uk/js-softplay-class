@@ -42,14 +42,32 @@ class SoftPlay {
     } else this.adults -= numAdults
     this.children -= numChildren
     this.total = this.adults + this.children
+    return true
+  }
+  occupancy() {
+    const peopleInside = {
+      adults: this.adults,
+      children: this.children
+    }
+    return peopleInside
   }
 }
 
 const numOfPeople = new SoftPlay(0, 0)
+console.log(numOfPeople.occupancy())
 
-numOfPeople.enter(3, 3)
+numOfPeople.enter(5, 5)
+console.log(numOfPeople.occupancy())
+
+numOfPeople.leave(2, 2)
+console.log(numOfPeople.occupancy())
 
 numOfPeople.leave(1, 1)
+console.log(numOfPeople.occupancy())
+
+numOfPeople.enter(5, 3)
+console.log(numOfPeople.occupancy())
+
 console.log(numOfPeople)
 
 // TODO: Change the undefined value below to the name of your class
