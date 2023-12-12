@@ -44,6 +44,7 @@ class SoftPlay {
     this.total = this.adults + this.children
     return true
   }
+
   occupancy() {
     const peopleInside = {
       adults: this.adults,
