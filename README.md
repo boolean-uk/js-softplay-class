@@ -110,7 +110,6 @@ true
 > sp.occupancy() 
 { adults: 0, children: 0 }
 ```
-
 ## Testing
 A test has already been created for your function inside
 `spec/soft-play.spec.js`. You should not need to modify this file. You can run the tests using npx:
