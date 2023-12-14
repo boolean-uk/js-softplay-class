@@ -4,7 +4,7 @@ class Softplay {
     this.numAdults = numAdults
     this.numChildren = numChildren
     this.minAdults = minAdults
-    this.currentTotal = 0
+    this.currentTotal = { adults: 0, children: 0 }
   }
 
   enter(numAdults, numChildren) {
@@ -13,7 +13,8 @@ class Softplay {
     } else {
       this.numAdults += numAdults
       this.numChildren += numChildren
-      this.currentTotal += numAdults + numChildren
+      this.currentTotal.adults += numAdults
+      this.currentTotal.children += numChildren
       return true
     }
   }
@@ -30,7 +31,6 @@ class Softplay {
     } else {
       this.numAdults -= numAdults
       this.numChildren -= numChildren
-      this.currentTotal -= numAdults + numChildren
 
       return true
     }
@@ -41,7 +41,7 @@ class Softplay {
   }
 
   total() {
-    return { total: this.currentTotal }
+    return this.currentTotal
   }
 }
 
