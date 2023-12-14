@@ -21,6 +21,8 @@ class Softplay{
       }
       this.numAdults += numAdults
       this.numChildren += numChildren
+      this.totalAdults += numAdults
+      this.totalChildren += numChildren
       return true
     }
     
