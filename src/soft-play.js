@@ -9,12 +9,6 @@ class Softplay{
       return { adults: this.numAdults, children: this.numChildren }
     }
     
-    // let totalAdults = 0
-    // let totalChildren = 0
-    // total() {
-    //   return { adults: totalAdults, children: totalChildren }
-    // }
-    
     enter(numAdults, numChildren) {
       if (numAdults < numChildren) {
         return false
