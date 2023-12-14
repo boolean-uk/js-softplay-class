@@ -75,7 +75,6 @@ console.log(sp.enter(8, 5))
 console.log(sp.occupancy())
 // Output: { adults: 16, children: 10 }
 console.log(sp.total())
-// Output: { adults: 1, children: 1 }
 
 // TODO: Change the undefined value below to the name of your class
 module.exports = Softplay
