@@ -2,8 +2,8 @@ class Softplay {
   constructor(numAdults, numChildren) {
     this.numAdults = numAdults
     this.numChildren = numChildren
-    this.totalAdults = this.numAdults + numAdults
-    this.totalChildren = this.numChildren + numChildren
+    this.totalAdults = this.numAdults
+    this.totalChildren = this.numChildren
   }
 
   // enter
@@ -75,7 +75,7 @@ console.log(sp.enter(8, 5))
 console.log(sp.occupancy())
 // Output: { adults: 16, children: 10 }
 console.log(sp.total())
-// Output: { adults: 26, children: 19 }
+// Output: { adults: 1, children: 1 }
 
 // TODO: Change the undefined value below to the name of your class
 module.exports = Softplay
