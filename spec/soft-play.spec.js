@@ -81,7 +81,7 @@ describe('Soft Play', () => {
 
   it('Total of enter 2 children and 6 adults and leave 1 children and 5 adults should be 2', function () {
     sp.enter(6, 2)
-    expect(sp.leave(5, 1)).toBeTrue()D
+    expect(sp.leave(5, 1)).toBeTrue()
     expect(sp.total()).toEqual({ adults: 6, children: 2 })
   })
 })
