@@ -22,7 +22,7 @@ class Softplay {
         this.numAdults - numAdults < 0 ||
         this.numChildren - numChildren < 0
       ) {
-        return false
+      return false
       } else if (this.numAdults - numAdults < this.numChildren - numChildren) {
         return false
       } else {
