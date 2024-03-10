@@ -1,45 +1,59 @@
-// TODO: Create a class in this file to contain all of the logic for this exercise
+// src/soft-play.js
+
 class Softplay {
-    constructor(numAdults, numChildren) {
-      this.numAdults = numAdults
-      this.numChildren = numChildren
-    }
-  
-    enter(numAdults, numChildren) {
-      if (numChildren < 1 || numAdults < 1 || numChildren > numAdults) {
-        return false
-      } else {
-        this.numAdults += numAdults
-        this.numChildren += numChildren
-        return true
-      }
-    }
-  
-    leave(numAdults, numChildren) {
-      if (numAdults < numChildren) {
-        return false
-      } else if (
-        this.numAdults - numAdults < 0 ||
-        this.numChildren - numChildren < 0
-      ) {
-        return false
-      } else if (this.numAdults - numAdults < this.numChildren - numChildren) {
-        return false
-      } else {
-        this.numAdults -= numAdults
-        this.numChildren -= numChildren
-        return true
-      }
-    }
-  
-    occupancy() {
-      return {
-        adults: this.numAdults,
-        children: this.numChildren
-      }
-    }
+  constructor(numAdults, numChildren) {
+    this.totalAdults = 0;
+    this.totalChildren = 0;
+    this.currentAdults = numAdults;
+    this.currentChildren = numChildren;
   }
-  
-  const sp = new Softplay()
-  
-  module.exports = Softplay
+
+  enter(numAdults, numChildren) {
+    // Check if every child entering is accompanied by at least 1 adult
+    if (numChildren > 0 && numAdults === 0) {
+      return false;
+    }
+
+    this.currentAdults += numAdults;
+    this.currentChildren += numChildren;
+    this.totalAdults += numAdults;
+    this.totalChildren += numChildren;
+
+    return true;
+  }
+
+  leave(numAdults, numChildren) {
+    // Check if a child is not attempting to leave without an adult
+    // Check if the number of adults and children left inside the center will not cause more children than adults
+    // Check if every child leaving is accompanied by at least 1 adult
+    // Check if the number of adults and children attempting to leave is not greater than the number currently inside the center
+    if (
+      numChildren > 0 &&
+      numAdults === 0 &&
+      this.currentAdults - numAdults < this.currentChildren - numChildren + 1
+    ) {
+      return false;
+    }
+
+    this.currentAdults -= numAdults;
+    this.currentChildren -= numChildren;
+
+    return true;
+  }
+
+  occupancy() {
+    return {
+      adults: this.currentAdults,
+      children: this.currentChildren,
+    };
+  }
+
+  total() {
+    return {
+      adults: this.totalAdults,
+      children: this.totalChildren,
+    };
+  }
+}
+
+module.exports = Softplay;
