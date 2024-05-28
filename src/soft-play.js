@@ -19,7 +19,7 @@ class SoftPlay {
   leave(numAdults, numChildren) {
     const isAdult = numAdults > 0
     const isEnoughPeople =
-      numAdults >= this.adults && numChildren >= this.children
+      numAdults <= this.adults && numChildren <= this.children
     const isAdultForEachChild = numAdults >= numChildren
     const isMaintainingCentreRatio =
       this.adults - numAdults >= this.children - numChildren
@@ -36,6 +36,7 @@ class SoftPlay {
 
     this.adults -= numAdults
     this.children -= numChildren
+    return true
   }
 
   occupancy() {
