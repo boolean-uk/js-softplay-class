@@ -1,38 +1,39 @@
 // TODO: Create a class in this file to contain all of the logic for this exercise
 class Softplay {
-    constructor (numAdults, numChildren) {
-        this.numAdults = numAdults
-        this.numChildren = numChildren
+  constructor(numAdults, numChildren) {
+    this.numAdults = numAdults
+    this.numChildren = numChildren
+  }
+
+  enter(numAdults, numChildren) {
+    if (numChildren > numAdults) {
+      return false
+    } else {
+      this.numAdults += numAdults
+      this.numChildren += numChildren
+      return true
     }
-    enter (numAdults, numChildren) {
-        if (numChildren > numAdults) {
-            return false
-        }
-        else {
-            this.numAdults += numAdults
-            this.numChildren += numChildren
-            return true
-        }
+  }
+
+  leave(numAdults, numChildren) {
+    if (numAdults < numChildren) {
+      return false
     }
-    leave (numAdults, numChildren) {
-        if (numAdults < numChildren) {
-            return false
-        }
-        if (this.numAdults < numAdults || this.numChildren < numChildren) {
-            return false
-        }
-        if (this.numAdults - numAdults < this.numChildren - numChildren) {
-            return false
-        }
-        else {
-            this.numAdults -= numAdults
-            this.numChildren -= numChildren
-            return true
-        }
+    if (this.numAdults < numAdults || this.numChildren < numChildren) {
+      return false
     }
-    occupancy () {
-        return {adults: this.numAdults, children: this.numChildren}
+    if (this.numAdults - numAdults < this.numChildren - numChildren) {
+      return false
+    } else {
+      this.numAdults -= numAdults
+      this.numChildren -= numChildren
+      return true
     }
+  }
+
+  occupancy() {
+    return { adults: this.numAdults, children: this.numChildren }
+  }
 }
 
 // const softplay = new Softplay (5, 2)
