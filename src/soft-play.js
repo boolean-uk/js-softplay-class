@@ -3,15 +3,16 @@
 
 class Softplay {
  
-  constructor(numAdults, numChildren) {
+  constructor(numAdults, numChildren, adultsRequiredPerChild) {
     this.numAdults = numAdults
     this.numChildren = numChildren
     this.totalAdults = 0
     this.totalChildren = 0
+    this.adultsRequiredPerChild = adultsRequiredPerChild
   }
 
   enter(numAdults, numChildren) {
-    if (numAdults < numChildren) {
+    if ((numAdults / this.adultsRequiredPerChild) < numChildren) {
       return false
     }
     this.numAdults += numAdults
@@ -24,8 +25,8 @@ class Softplay {
   leave(numAdults, numChildren) {
     if (
       !numAdults ||
-      this.numAdults - numAdults < this.numChildren - numChildren ||
-      numChildren > numAdults ||
+      (this.numAdults - numAdults) / this.adultsRequiredPerChild < this.numChildren - numChildren ||
+      numChildren > (numAdults / this.adultsRequiredPerChild)||
       this.numAdults - numAdults < 0 ||
       this.numChildren - numChildren < 0
     ) {
@@ -44,10 +45,10 @@ class Softplay {
   }
 }
 
-const sheffield = new Softplay(0, 0)
-sheffield.enter(3,3)
-sheffield.leave(2,2)
-console.log(sheffield.numAdults, sheffield.totalChildren)
+const sheffield = new Softplay(0, 0, 3)
+console.log(sheffield.enter(15, 4))
+console.log(sheffield.leave(3, 0))
+
 
 // TODO: Change the undefined value below to the name of your class
 module.exports = Softplay
