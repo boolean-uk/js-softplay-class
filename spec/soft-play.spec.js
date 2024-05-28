@@ -9,6 +9,7 @@ describe("Soft Play", () => {
   
   it("Initial state is empty", function() {
     expect(sp.occupancy()).toEqual({adults: 0, children: 0})
+    expect(sp.total()).toEqual({totalAdults: 0, totalChildren: 0})
   })
 
   it("Single adult and child enter", function() {
@@ -77,5 +78,17 @@ describe("Soft Play", () => {
     sp.enter(2,2)
     expect(sp.leave(2,2)).toBeTrue()
     expect(sp.occupancy()).toEqual({adults: 0, children:0})
+  })
+
+  it("shows total people entered", function() {
+    sp.enter(1, 1)
+    sp.enter(2, 1)
+    sp.leave(1, 0)
+    sp.enter(3, 2)
+    sp.enter(2, 2)
+    sp.leave(1, 1)
+
+    expect(sp.occupancy()).toEqual({adults: 6, children: 5})
+    expect(sp.total()).toEqual({totalAdults: 8, totalChildren: 6})
   })
 })
