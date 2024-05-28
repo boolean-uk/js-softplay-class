@@ -1,5 +1,39 @@
-// TODO: Create a class in this file to contain all of the logic for this exercise
+class Softplay {
+  constructor(numAdults = 0, numChildren = 0) {
+    this.numAdults = numAdults
+    this.numChildren = numChildren
+  }
 
+  enter(numAdults, numChildren) {
+    if (numAdults >= numChildren) {
+      this.numAdults += numAdults
+      this.numChildren += numChildren
+      return true
+    } else {
+      return false
+    }
+  }
 
-// TODO: Change the undefined value below to the name of your class
-module.exports = undefined
+  leave(numAdults, numChildren) {
+    if (
+      numAdults >= numChildren &&
+      numAdults + numChildren <= this.numAdults + this.numChildren &&
+      this.numAdults - numAdults >= this.numChildren - numChildren
+    ) {
+      this.numAdults -= numAdults
+      this.numChildren -= numChildren
+      return true
+    } else {
+      return false
+    }
+  }
+
+  occupancy() {
+    return {
+      adults: this.numAdults,
+      children: this.numChildren
+    }
+  }
+}
+
+module.exports = Softplay
