@@ -43,6 +43,13 @@ class Softplay {
       children: this.numChildren
     }
   }
+
+  total() {
+    return {
+        adults: this.totalAdults,
+        children: this.totalChildren
+    }
+  }
 }
 
 // TODO: Change the undefined value below to the name of your class
