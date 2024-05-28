@@ -4,6 +4,8 @@ class Softplay {
   constructor(numAdults, numChildren) {
     this.numAdults = numAdults
     this.numChildren = numChildren
+    this.totalAdults = numAdults // Ext property to track total adults
+    this.totalChildren = numChildren // Ext property to track total children
   }
 
   // Method to register entry of adults and children
@@ -15,6 +17,8 @@ class Softplay {
     // Update the totals
     this.numAdults += numAdults
     this.numChildren += numChildren
+    this.totalAdults += numAdults // Update total adults
+    this.totalChildren += numChildren // Update total children
     return true // If condiitons are met
   }
 
@@ -46,6 +50,13 @@ class Softplay {
       children: this.numChildren // Current tally of children
     }
   }
+
+  total() {
+    return {
+      adults: this.totalAdults,
+      children: this.totalChildren
+    }
+  }
 }
 
 const sp = new Softplay(0, 0) // Initialize with 0 adults and 0 children
@@ -65,5 +76,7 @@ console.log(sp.occupancy()) // { adults: 1, children: 1 }
 
 console.log(sp.leave(1, 1)) // true
 console.log(sp.occupancy()) // { adults: 0, children: 0 }
+
+console.log(sp.total()) // { adults: 2, children: 2 }
 
 module.exports = Softplay
