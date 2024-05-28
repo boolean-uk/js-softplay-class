@@ -2,12 +2,12 @@
 // TODO: Create a class in this file to contain all of the logic for this exercise
 
 class Softplay {
-  constructor(numAdults, numChildren, adultsRequiredPerChild) {
+  constructor(numAdults, numChildren, adultsRequiredPerChild = 1) {
     this.numAdults = numAdults
     this.numChildren = numChildren
     this.totalAdults = 0
     this.totalChildren = 0
-    this.adultsRequiredPerChild = 1
+    this.adultsRequiredPerChild = adultsRequiredPerChild
   }
 
   enter(numAdults, numChildren) {
