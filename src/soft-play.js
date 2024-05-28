@@ -13,6 +13,8 @@ class Softplay {
     }
     this.numAdults += numAdults
     this.numChildren += numChildren
+    this.totalAdults += numAdults
+    this.totalChildren += numChildren
     return true
   }
 
@@ -21,7 +23,8 @@ class Softplay {
       !numAdults ||
       this.numAdults - numAdults < this.numChildren - numChildren ||
       numChildren > numAdults ||
-      (this.numAdults - numAdults < 0 || this.numChildren - numChildren < 0)
+      this.numAdults - numAdults < 0 ||
+      this.numChildren - numChildren < 0
     ) {
       return false
     }
@@ -29,14 +32,18 @@ class Softplay {
     this.numChildren -= numChildren
     return true
   }
-  
+
   occupancy() {
     return {
-        adults: this.numAdults,
-        children: this.numChildren
+      adults: this.numAdults,
+      children: this.numChildren
     }
   }
 }
+
+const Sheffield = new Softplay(0, 0)
+Sheffield.enter(3,3)
+console.log(Sheffield.numAdults)
 
 // TODO: Change the undefined value below to the name of your class
 module.exports = Softplay
