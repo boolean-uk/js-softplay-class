@@ -41,6 +41,14 @@ class Softplay {
         return true
     }
   }
+   
+  occupancy(){
+    return {
+        adults: this.numAdults,
+        children: this.numChildren
+
+    }
+  }
 }
 // TODO: Change the undefined value below to the name of your class
 module.exports = Softplay
