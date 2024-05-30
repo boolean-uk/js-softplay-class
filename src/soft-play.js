@@ -1,46 +1,43 @@
 class Softplay {
-    constructor(numAdults, numChildren) {
-        this.numAdults = numAdults;
-        this.numChildren = numChildren;
+  constructor(numAdults, numChildren) {
+    this.numAdults = numAdults
+    this.numChildren = numChildren
+  }
+
+  enter(numAdults, numChildren) {
+    if (numChildren > numAdults) {
+      return false
     }
 
-    enter(numAdults, numChildren) {
+    this.numAdults += numAdults
+    this.numChildren += numChildren
+    return true
+  }
 
-        if (numChildren > numAdults) {
-            return false;
-        }
-
-        this.numAdults += numAdults;
-        this.numChildren += numChildren;
-        return true;
+  leave(numAdults, numChildren) {
+    if (numAdults > this.numAdults || numChildren > this.numChildren) {
+      return false
     }
 
-    leave(numAdults, numChildren) {
-
-        if (numAdults > this.numAdults || numChildren > this.numChildren) {
-            return false;
-        }
-
-        if (numChildren > numAdults) {
-            return false;
-        }
-
-        if ((this.numAdults - numAdults) < (this.numChildren - numChildren)) {
-            return false;
-        }
-
-        this.numAdults -= numAdults;
-        this.numChildren -= numChildren;
-        return true;
+    if (numChildren > numAdults) {
+      return false
     }
 
-    occupancy() {
-        return {
-            adults: this.numAdults,
-            children: this.numChildren
-        };
+    if (this.numAdults - numAdults < this.numChildren - numChildren) {
+      return false
     }
+
+    this.numAdults -= numAdults
+    this.numChildren -= numChildren
+    return true
+  }
+
+  occupancy() {
+    return {
+      adults: this.numAdults,
+      children: this.numChildren
+    }
+  }
 }
 
-module.exports = Softplay;
-
+module.exports = Softplay
