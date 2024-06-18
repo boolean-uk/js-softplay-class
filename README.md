@@ -12,11 +12,13 @@ npm ci
 ```
 
 ## Requirements
+
 You need to write a program that **maintains a count** of both the number of children and adults inside a soft player center. Inside the `src/soft-play.js` file, you should add a class named `Softplay` that accepts two parameters in its constructor: `numAdults` and `numChildren`. These represent the initial state stored in the class.
 
 The class should have the following methods:
 
 ### enter(numAdults, numChildren) 
+
 This method is used to register adults and children entering the soft play center. The method should check for the following conditions:
 
 * Every child entering the soft play center is accompanied by at least 1 adult.
@@ -24,6 +26,7 @@ This method is used to register adults and children entering the soft play cente
 If any of these checks fail, the method should return `false`. Otherwise, the method should return `true` and `numAdults` and `numChildren` should be added to the current totals.
 
 ### leave(numAdults, numChildren)
+
 This method is used to register adults and children leaving the soft play center. The method should check for the following conditions:
 
 * A child is not attempting to leave without an adult
@@ -34,6 +37,7 @@ This method is used to register adults and children leaving the soft play center
 If any of these checks fail, method should return `false`. Otherwise, the method should return `true` and `numAdults` and `numChildren` should be deducted from the current totals.
 
 ### occupancy()
+
 This method should return an object with two keys - `adults` should contain the number of adults currently inside the soft play center and `children` the number of children. For example:
 
 ```javascript
@@ -44,6 +48,7 @@ This method should return an object with two keys - `adults` should contain the 
 ```
 
 ## Tips
+
 Remember that classes can have fields (also called attributes or properties) to store values.
 
 ```javascript
@@ -63,7 +68,9 @@ class Counter {
 ```
 
 ## Example
+
 The REPL extract below illustrates the expected behavior of the functions.
+
 ```javascript
 const sp = new Softplay(0, 0)
 //counts start at 0
@@ -112,24 +119,29 @@ true
 ```
 
 ## Testing
+
 A test has already been created for your function inside
-`spec/soft-play.spec.js`. You should not need to modify this file. You can run the tests using npx:
+`spec/soft-play.spec.js`. You should not need to modify this file. You can run the tests using npm:
 
 ```sh
-$ npx jasmine spec/soft-play.spec.js
+$ npm test
 ```
 
 You can focus on passing one test at a time by implementing your methods step by step. When all the tests pass, you know your functions are complete. You can look at the test cases in the `spec/soft-play.spec.js` file, but you should not change any of the code.
 
 ## Extension
+
 Once you have finished the core methods, you can extend the exercise to include an additional method:
 
 ### total()
+
 This method should return an object with the same structure as `occupancy`, but the values should be the all-time totals showing how many adults and children have entered the soft play center. For this extension exercise add your own test cases in to `spec/soft-play.spec.js`
 
 ### Scalability
+
 Once you have completed the exercise, take some time to consider following points and try to implement a solution for them:
 
 * The class you have created only considers a single soft play center - what if we wanted to keep track of multiple soft play centers at the same time?
 
 * If we do keep track of multiple soft play centers, imagine we also want to have different rules for different centers. For example, perhaps in some centers a child must be accompanied by at least 2 adults.
+
