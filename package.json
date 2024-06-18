@@ -6,6 +6,7 @@
     "test": "jasmine"
   },
   "devDependencies": {
-    "jasmine": "^3.10.0"
+    "jasmine": "^3.10.0",
+    "prettier": "^3.3.2"
   }
 }
