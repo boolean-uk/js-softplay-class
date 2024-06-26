@@ -1,5 +1,44 @@
-// TODO: Create a class in this file to contain all of the logic for this exercise
-
-
-// TODO: Change the undefined value below to the name of your class
-module.exports = undefined
+class Softplay {
+    constructor(adults = 0, children = 0) {
+      this.adults = adults;
+      this.children = children;
+    }
+  
+    occupancy() {
+      return { adults: this.adults, children: this.children };
+    }
+  
+    enter(adults, children) {
+      if (adults >= children && adults > 0) {
+        this.adults += adults;
+        this.children += children;
+        return true;
+      }
+      return false;
+    }
+  
+    leave(adults, children) {
+      if (adults > this.adults || children > this.children) {
+        return false;
+      }
+  
+      if (children > 0 && adults === 0) {
+        return false;
+      }
+  
+      if ((this.adults - adults) < (this.children - children)) {
+        return false;
+      }
+  
+      if (children > adults) {
+        return false;
+      }
+      
+      this.adults -= adults;
+      this.children -= children;
+      return true;
+    }
+  }
+  
+  module.exports = Softplay;
+  
